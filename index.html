@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Profile</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <!-- Background Layer -->
-    <div id="bg-layer"></div>
-
-    <!-- Snow Particles Canvas -->
-    <canvas id="snow-canvas"></canvas>
-
-    <!-- Tap To Enter Overlay Screen -->
-    <div id="overlay">
-        <div class="overlay-title" id="overlay-title">click me</div>
-        <div class="overlay-sub" id="overlay-sub"></div>
-        <div class="tap-hint">+ TAP ANYWHERE</div>
-    </div>
-
     <!-- Main Profile Card -->
     <div id="main-card">
         <div class="profile-header">
@@ -62,6 +39,9 @@
                 <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
         </div>
+
+        <!-- Spotify Embed Container -->
+        <div id="spotify-container" style="width: 100%; margin-top: 12px;"></div>
     </div>
 
     <!-- Script Configuration -->
@@ -121,22 +101,30 @@
         setupSocial('btn-discord', CONFIG.socials.discord);
         setupSocial('btn-instagram', CONFIG.socials.instagram);
 
-        // Music playback
-        let audio = null;
-        if (CONFIG.musicUrl && CONFIG.musicUrl.trim() !== "") {
-            audio = new Audio(CONFIG.musicUrl);
-            audio.loop = true;
+        // Load Spotify Embed Player
+        const spotifyContainer = document.getElementById('spotify-container');
+        if (CONFIG.spotifyTrackId && CONFIG.spotifyTrackId.trim() !== "") {
+            spotifyContainer.innerHTML = `
+                <iframe 
+                    style="border-radius:12px; border:none;" 
+                    src="https://open.spotify.com/embed/track/${CONFIG.spotifyTrackId}?utm_source=generator&theme=0" 
+                    width="100%" 
+                    height="80" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
+            `;
+        } else {
+            spotifyContainer.style.display = "none";
         }
 
+        // Overlay Tap to Enter
         const overlay = document.getElementById('overlay');
         const mainCard = document.getElementById('main-card');
 
         overlay.addEventListener('click', () => {
             overlay.classList.add('hidden');
             mainCard.classList.add('visible');
-            if (audio) {
-                audio.play().catch(e => console.log(e));
-            }
         });
 
         // Snow Canvas Animation
@@ -200,5 +188,3 @@
         }
         animate();
     </script>
-</body>
-</html>
