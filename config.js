@@ -9,7 +9,7 @@ const CONFIG = {
 
     // Spotify Track ID (Copy from Spotify Share Link)
     // Example link: https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT
-    spotifyTrackId: "4cOdK2wGLETKBW3PvgPWqT",
+    spotifyTrackId: "1JioaCninhpfY1filFEIZi",
 
     // Custom Badges Next To Username
     badges: [
