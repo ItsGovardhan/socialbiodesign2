@@ -1,26 +1,26 @@
 const CONFIG = {
-    // Username displayed on the card
+    // Profile Identity
     username: "skiddai",
-
-    // Subtitle text displayed on the overlay screen
     subtitle: "D E V",
 
-    // Background configuration: "image" or "video"
-    backgroundType: "image", 
-    backgroundUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1920",
+    // Background Media ("image" or "video")
+    backgroundType: "image",
+    backgroundUrl: "assets/bg.jpg",
 
-    // Optional background music URL (plays on tap/click)
-    musicUrl: "",
+    // Background Music (.mp3)
+    musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
 
-    // Array of image paths or URLs for badge icons next to username
+    // Custom Badges Next To Username
     badges: [
-        "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2b50.png"
+        "assets/badge1.png",
+        "assets/badge2.png",
+        "assets/badge3.png"
     ],
 
-    // Social links (leave empty string "" to hide button)
+    // Social Media Links (Leave as "" to hide)
     socials: {
-        telegram: "https://t.me/yourusername",
-        discord: "https://discord.gg/yourinvite",
-        instagram: "https://instagram.com/yourusername"
+        telegram: "",
+        discord: "https://discord.gg/globexd",
+        instagram: ""
     }
 };
