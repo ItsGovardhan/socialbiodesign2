@@ -7,8 +7,9 @@ const CONFIG = {
     backgroundType: "image",
     backgroundUrl: "assets/bg.jpg",
 
-    // Background Music (.mp3)
-    musicUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    // Spotify Track ID (Copy from Spotify Share Link)
+    // Example link: https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT
+    spotifyTrackId: "4cOdK2wGLETKBW3PvgPWqT",
 
     // Custom Badges Next To Username
     badges: [
