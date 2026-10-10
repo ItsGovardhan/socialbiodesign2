@@ -7,9 +7,8 @@ const CONFIG = {
     backgroundType: "image",
     backgroundUrl: "assets/bg.jpg",
 
-    // Spotify Track ID (Copy from Spotify Share Link)
-    // Example link: https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT
-    spotifyTrackId: "1JioaCninhpfY1filFEIZi",
+    // Background Audio File
+    musicUrl: "assets/music.mp3",
 
     // Custom Badges Next To Username
     badges: [
