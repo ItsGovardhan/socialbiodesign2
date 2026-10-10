@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <!-- Authentic Pixel Font from Google Fonts -->
+    <!-- True Bitmap Pixel Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -23,7 +23,7 @@
             overflow: hidden;
             background-color: #000;
             color: #fff;
-            font-family: 'Silkscreen', monospace;
+            font-family: 'Press Start 2P', monospace;
         }
 
         /* Background Media Layer */
@@ -67,11 +67,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             cursor: pointer;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
 
         #overlay.hidden {
@@ -81,19 +81,18 @@
         }
 
         .overlay-text {
-            font-size: 1rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-            animation: pulse 1.8s infinite ease-in-out;
+            color: #ffffff;
+            animation: pulse 1.6s infinite ease-in-out;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.35; transform: scale(0.98); }
-            50% { opacity: 1; transform: scale(1); }
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
-        /* Container View */
+        /* Center Layout Wrapper */
         .wrapper {
             position: relative;
             z-index: 10;
@@ -102,7 +101,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 24px;
         }
 
         /* Main Profile Card */
@@ -113,8 +112,8 @@
             flex-direction: column;
             align-items: center;
             opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.97);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         #main-card.visible {
@@ -122,22 +121,40 @@
             transform: scale(1);
         }
 
-        /* Profile Header */
-        .profile-header {
+        /* Profile Header with Atmospheric Ambient Glow */
+        .profile-header-container {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
+        /* The Soft Radial Backlight seen in clu.ng */
+        .profile-glow {
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(0, 0, 0, 0) 75%);
+            filter: blur(16px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Username: Pixelated lowercase, crisp look */
         .username {
-            font-size: 1.85rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 1.45rem;
             color: #ffffff;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
             line-height: 1;
+            text-transform: lowercase;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
         }
 
         .badges-container {
@@ -146,14 +163,15 @@
             gap: 6px;
         }
 
+        /* Badges with light glow */
         .badge-icon {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             object-fit: contain;
-            filter: drop-shadow(0 0 8px rgba(90, 130, 255, 0.6));
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.45));
         }
 
-        /* Social Buttons List */
+        /* Social Buttons */
         .social-buttons {
             width: 100%;
             display: flex;
@@ -161,46 +179,46 @@
             gap: 12px;
         }
 
-        /* Clu.ng style glass pills */
+        /* Semi-transparent Frosted Pill */
         .social-btn {
             width: 100%;
-            height: 52px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 16px 0 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            padding: 0 16px 0 10px;
+            background: rgba(30, 30, 30, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             text-decoration: none;
             color: #ffffff;
-            transition: all 0.2s ease;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
         }
 
         .social-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
+            background: rgba(45, 45, 45, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1.5px);
         }
 
         .btn-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
-        /* Dark rounded square box for icons */
+        /* Dark Rounded Icon Container */
         .ss-icon-box {
-            width: 36px;
-            height: 36px;
-            background: rgba(0, 0, 0, 0.45);
-            border-radius: 10px;
+            width: 38px;
+            height: 38px;
+            background: rgba(18, 18, 18, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
         }
 
         .ss-icon-box svg {
@@ -209,23 +227,25 @@
             fill: #ffffff;
         }
 
+        /* Label format: ": tg", ": ig" */
         .btn-label {
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
             color: #ffffff;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
             line-height: 1;
         }
 
-        /* Pixel style diagonal arrow */
+        /* Exact diagonal arrow with open head */
         .arrow-icon {
-            width: 15px;
-            height: 15px;
-            opacity: 0.6;
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            width: 13px;
+            height: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            transition: transform 0.2s ease, color 0.2s ease;
         }
 
         .social-btn:hover .arrow-icon {
-            opacity: 1;
+            color: #ffffff;
             transform: translate(2px, -2px);
         }
     </style>
@@ -235,7 +255,7 @@
     <!-- Background Layer -->
     <div id="bg-layer"></div>
 
-    <!-- Snow Animation Canvas -->
+    <!-- Snow Particles Canvas -->
     <canvas id="snow-canvas"></canvas>
 
     <!-- Tap to Enter Overlay -->
@@ -243,18 +263,21 @@
         <span class="overlay-text" id="overlay-sub">[ click to enter ]</span>
     </div>
 
-    <!-- Main Content Wrapper -->
+    <!-- Main Wrapper -->
     <div class="wrapper">
         <div id="main-card">
-            <!-- Profile Header -->
-            <div class="profile-header">
-                <span class="username" id="display-username"></span>
-                <div class="badges-container" id="badges-container"></div>
+            <!-- Header with soft white halo glow -->
+            <div class="profile-header-container">
+                <div class="profile-glow"></div>
+                <div class="profile-header">
+                    <span class="username" id="display-username"></span>
+                    <div class="badges-container" id="badges-container"></div>
+                </div>
             </div>
 
             <!-- Social Links -->
             <div class="social-buttons" id="socials-container">
-                <!-- Telegram -->
+                <!-- Telegram Button -->
                 <a href="#" target="_blank" id="btn-telegram" class="social-btn" style="display: none;">
                     <div class="btn-left">
                         <div class="ss-icon-box">
@@ -262,12 +285,13 @@
                         </div>
                         <span class="btn-label">: tg</span>
                     </div>
-                    <svg class="arrow-icon" viewBox="0 0 24 24">
-                        <path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
                 </a>
 
-                <!-- Discord -->
+                <!-- Discord Button -->
                 <a href="#" target="_blank" id="btn-discord" class="social-btn" style="display: none;">
                     <div class="btn-left">
                         <div class="ss-icon-box">
@@ -275,12 +299,13 @@
                         </div>
                         <span class="btn-label">: dc</span>
                     </div>
-                    <svg class="arrow-icon" viewBox="0 0 24 24">
-                        <path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
                 </a>
 
-                <!-- Instagram -->
+                <!-- Instagram Button -->
                 <a href="#" target="_blank" id="btn-instagram" class="social-btn" style="display: none;">
                     <div class="btn-left">
                         <div class="ss-icon-box">
@@ -288,15 +313,16 @@
                         </div>
                         <span class="btn-label">: ig</span>
                     </div>
-                    <svg class="arrow-icon" viewBox="0 0 24 24">
-                        <path d="M6 18L18 6M18 6H9M18 6V15" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
                     </svg>
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Script Configuration -->
+    <!-- Configuration Script -->
     <script src="config.js"></script>
 
     <script>
@@ -319,11 +345,11 @@
             bgLayer.style.backgroundImage = `url('${CONFIG.backgroundUrl}')`;
         }
 
-        // Subtitle & Username Setup
+        // Subtitle & Username
         if (CONFIG.subtitle) {
             document.getElementById('overlay-sub').textContent = CONFIG.subtitle;
         }
-        document.getElementById('display-username').textContent = CONFIG.username;
+        document.getElementById('display-username').textContent = CONFIG.username.toLowerCase();
 
         // Render Badges
         const badgesContainer = document.getElementById('badges-container');
@@ -362,7 +388,7 @@
             bgAudio.volume = 0.5;
         }
 
-        // Tap to Enter Click Listener
+        // Tap to Enter Overlay Click
         const overlay = document.getElementById('overlay');
         const mainCard = document.getElementById('main-card');
 
@@ -371,7 +397,7 @@
             mainCard.classList.add('visible');
 
             if (bgAudio) {
-                bgAudio.play().catch(err => console.log("Audio autoplay error:", err));
+                bgAudio.play().catch(err => console.log("Audio autoplay prevented:", err));
             }
         });
 
