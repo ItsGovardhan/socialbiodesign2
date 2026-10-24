@@ -1,6 +1,6 @@
 const CONFIG = {
     // Profile Identity
-    username: "skiddai",
+    username: "skiddaiji",
     subtitle: "D E V",
 
     // Background Media ("image" or "video")
