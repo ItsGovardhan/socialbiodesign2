@@ -5,7 +5,7 @@ const CONFIG = {
 
     // Background Media ("image" or "video")
     backgroundType: "video",
-    backgroundUrl: "assets/48754e3ab9dd84de034e7fe36967c71d.mp4",
+    backgroundUrl: "assets/bfa637cfbee601c34e6f381e07a049c4_720w (1).mp4",
 
     // Background Music (.mp3)
     musicUrl: "https://cdn.imageurlgenerator.com/uploads/75bb1912-1fc3-4ccb-b3f3-601e0139521e.mp4",
