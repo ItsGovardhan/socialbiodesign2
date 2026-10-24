@@ -8,7 +8,7 @@ const CONFIG = {
     backgroundUrl: "assets/bfa637cfbee601c34e6f381e07a049c4_720w (1).mp4",
 
     // Background Music (.mp3)
-    musicUrl: "https://cdn.imageurlgenerator.com/uploads/75bb1912-1fc3-4ccb-b3f3-601e0139521e.mp4",
+    musicUrl: "https://cdn.dbimg.app/ost4MHV4.mp4",
 
     // Custom Badges Next To Username
     badges: [
